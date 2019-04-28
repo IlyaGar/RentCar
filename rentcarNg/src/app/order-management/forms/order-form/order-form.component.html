@@ -1,0 +1,49 @@
+<div class="container">
+  <h2>Order Editor</h2>
+    <form (ngSubmit)="onSubmit(order)" #orderForm="ngForm">
+      <div class="form-group" *ngIf='existed'>
+        <label for="id" id="idLabel">ID</label>
+        <input type="text" class="form-control" id="id" aria-describedby="idLabel" required [(ngModel)]="order.OrderId"
+          name="id" #id="ngModel" readonly>
+      </div>
+      <div class="form-group">
+        <label for="user" id="userLabel">User</label>
+        <label id="user" class="form-control" aria-describedby="userLabel" >{{user.FirstName}} {{user.SecondName}} {{user.NumberDL}}</label>
+        <input type="button" class="btn btn-light bt-in-table" value="Select User" (click)="onSelectUser()" *ngIf="!isUser">
+        <app-user-form [isUser]="isUser" *ngIf="isUser"></app-user-form>
+      </div>
+      <div class="form-group">
+        <label for="car" id="carLabel">Car</label>
+        <label id="car" class="form-control" aria-describedby="carLabel" >{{car.Brand}} {{car.Model}} {{car.RegistrationNumber}}</label>
+        <input type="button" class="btn btn-light bt-in-table" value="Select Car" (click)="onSelectCar()" *ngIf="!isCar">
+        <app-car-form [isCar]="isCar" *ngIf="isCar"></app-car-form>
+        <!--<input type="number" class="form-control" id="car" aria-describedby="carLable" required [(ngModel)]="order.CarId"
+          name="car" #car="ngModel" #carOrder>-->
+      </div>
+      <div class="form-group">
+        <label for="start" id="startLable">Start Date</label>
+        <input type="date" class="form-control" id="start" aria-describedby="startLable" required [(ngModel)]="order.StartDate"
+          name="start" #start="ngModel" #startOrder>
+      </div>
+      <div class="form-group">
+        <label for="finish" id="finishLable">Start Date</label>
+        <input type="date" class="form-control" id="finish" aria-describedby="finishLable" required [(ngModel)]="order.FinishDate"
+          name="finish" #finish="ngModel" #finishOrder>
+      </div>
+      <span class="btn-toolbar" role="toolbar" aria-label="Hive action buttons" style="display: block; white-space:nowrap;">
+        <div class="btn-group mr-2" role="group" aria-label="Back group" (click)="navigateToOrders()">
+          <button type="button" class="btn btn-primary">Back</button>
+        </div>
+        <div class="btn-group mr-2" role="group" aria-label="View group" >
+          <button type="button" class="btn btn-primary" (click)="onSubmit(order)">Save</button>
+        </div>
+        <div class="btn-group mr-2" role="group" aria-label="View group" >
+          <button type="button" class="btn btn-primary" (click)="userOrder.value = ''" 
+            (click)="carOrder.value = ''" (click)="startOrder.value = ''" (click)="finishOrder.value = ''">Purge
+        </button>
+        </div>
+      </span>
+    </form>
+  </div>
+
+  

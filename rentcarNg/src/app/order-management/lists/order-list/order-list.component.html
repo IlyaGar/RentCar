@@ -1,0 +1,62 @@
+<div class="container">
+  <h2>Order List</h2>
+  <table class="table table-striped">
+    <thead>
+      <!--<th scope="col" (click)="sortTableOrder()"># Order</th>-->
+      <th scope="col" (click)="sortTable('FirstName')">First Name</th>
+      <th scope="col" (click)="sortTable('SecondName')">Second Name</th>
+      <th scope="col" (click)="sortTable('Brand')">Brand</th>
+      <th scope="col" (click)="sortTable('Model')">Model</th>
+      <th scope="col" (click)="sortTable('StartDate')">Start Date</th>
+      <th scope="col" (click)="sortTable('FinishDate')">FinishDate</th>
+      <th scope="col"></th>
+    </thead>
+    <tbody>
+        <!--<td>
+          <input type="number" class="form-control" id="orderIdSearch" [(ngModel)]="orderIdSearch">
+          <input type="submit" value="Filter" class="btn btn-light" (click)="filtersOrderId()">
+        </td>-->
+        <td>
+          <div class="form-group">        
+            <input type="text" class="form-control" id="firstNameSearch" [(ngModel)]="firstNameSearch">
+          </div>
+        </td>
+        <td>
+          <input type="text" class="form-control" id="secondNameSearch" [(ngModel)]="secondNameSearch">
+        </td>
+        <td>
+          <input type="text" class="form-control" id="brandSearch" [(ngModel)]="brandSearch">
+        </td>
+        <td>
+          <input type="text" class="form-control" id="modelSearch" [(ngModel)]="modelSearch">
+        </td>
+        <td>
+          <input type="date" class="form-control" id="startDateSearch" [(ngModel)]="startDateSearch">
+        </td>
+        <td>
+           <input type="date" class="form-control" id="finishDateSearch" [(ngModel)]="finishDateSearch">
+        </td>
+        <td>
+            <input type="submit" value="Filter" class="btn btn-light bt-in-tabl" (click)="filterTable()">
+            <input type="submit" value="Reset Filter" class="btn btn-light bt-in-tabl" (click)="resetFilter()">
+        </td>
+      <tr *ngFor="let order of orders">
+        <!--<td scope="row">{{order.OrderId}}</td>-->
+        <td>{{order.FirstName}}</td>
+        <td>{{order.SecondName}}</td>
+        <td>{{order.Brand}}</td>
+        <td>{{order.Model}}</td>
+        <td>{{order.StartDate | date: format}}</td>
+        <td>{{order.FinishDate | date: format}}</td>
+        <td>
+            <input type="button" value="Edit" class="btn btn-light bt-in-table" routerLink="/order/{{order.OrderId}}" />
+            <input type="button" value="Delete" class="btn btn-danger bt-in-table" (click)="onDeleteOrder(order.OrderId)" />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="btn-toolbar" role="toolbar" aria-label="Action buttons">
+      <div class="btn-group" role="group" aria-label="New group">
+        <button routerLink="/order" type="button" class="btn btn-primary">New Order</button>
+      </div>
+</div>

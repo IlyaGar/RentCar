@@ -1,0 +1,16 @@
+th {
+	cursor: pointer;
+}
+
+th:hover {
+    background: rgba(119, 136, 153, 0.205);
+    border-radius: 10px;
+}
+
+input {
+    width: 9pc;
+}
+
+.bt-in-table {
+    width: 4em;
+}

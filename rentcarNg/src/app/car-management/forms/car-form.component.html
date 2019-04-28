@@ -1,0 +1,25 @@
+  <div class="container">
+    <h2>Cars List</h2>
+    <table id="grid" class="table table-nofluid" > <!--class="table table-nofluid sort"-->
+      <thead>
+        <th scope="col" data-type="number">#</th>
+        <th scope="col" data-type="string">Brand</th>
+        <th scope="col" data-type="string">Model</th>
+        <th scope="col" data-type="string">Class</th>
+        <th scope="col" data-type="string">Issue Year</th>
+        <th scope="col" data-type="string">Registration Number</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let car of cars">
+          <td scope="row">{{car.CarId}}</td>
+          <td>{{car.Brand}}</td>
+          <td>{{car.Model}}</td>
+          <td>{{car.ClassCar}}</td>
+          <td>{{car.IssueYear | date: "yyyy"}}</td>
+          <td>{{car.RegistrationNumber}}</td>
+          <td><input type="button" value="Select" class="btn btn-light bt-in-table" *ngIf="isCar" 
+            (click)="onSelectCar(car)" /></td>
+        </tr>
+      </tbody>
+    </table>
+</div>

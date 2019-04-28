@@ -1,0 +1,7 @@
+th {
+	cursor: pointer;
+}
+
+th:hover {
+	background: rgb(190, 190, 190);
+}

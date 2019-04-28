@@ -1,0 +1,25 @@
+<div class="container">
+  <h2>Users List</h2>
+  <table class="table table-nofluid">
+    <thead>
+      <th scope="col" (click)="sortTableId()">#</th>
+      <th scope="col" (click)="sortTable('FirstName')">First Name</th>
+      <th scope="col" (click)="sortTable('SecondName')">Second Name</th>
+      <th scope="col" (click)="sortTable('NumberDL')">Number DL</th>
+      <th scope="col" (click)="sortTable('BirthDate')">Birth Date</th>
+      <th></th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td scope="row">{{user.UserId}}</td>
+        <td>{{user.FirstName}}</td>
+        <td>{{user.SecondName}}</td>
+        <td>{{user.NumberDL}}</td>
+        <td>{{user.BirthDate | date: format}}</td>
+        <td><input type="button" value="Select" class="btn btn-light bt-in-table" *ngIf="isUser" 
+          (click)="onSelectUser(user)" /></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
